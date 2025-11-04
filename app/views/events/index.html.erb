@@ -1,0 +1,9 @@
+<h1 style="text-align:center">Events</h1>
+<div class="events_container" style="display:flex; flex-direction:column; align-items:center;">
+  <% @events.each do |event| %>
+    <div>
+      <%= event.location %> <br>
+      <%= event.date %> 
+    </div>
+  <% end %>
+</div>
