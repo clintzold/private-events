@@ -1,0 +1,15 @@
+<h1>Create a new event</h1>
+<%= form_with model: @event do |form| %>
+  <% if @event.errors.any? %>
+    <p><%= @event.errors.first.full_message %></p>
+  <% end %>
+  <div>
+    <%= form.label :location, "Location" %> <br>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <%= form.label :date, "Date" %> <br>
+    <%= form.datetime_field :date %>
+  </div>
+  <%= form.submit %>
+<% end %>
