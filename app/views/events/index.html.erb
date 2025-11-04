@@ -2,8 +2,9 @@
 <div class="events_container" style="display:flex; flex-direction:column; align-items:center;">
   <% @events.each do |event| %>
     <div>
-      <%= event.location %> <br>
-      <%= event.date %> 
+      <%= event.location %>
+      <p>Date: <%= event.date %></p>
+      <p>Host Email: <%= event.host.email %></p>
     </div>
   <% end %>
 </div>
