@@ -11,5 +11,9 @@ class AttendancesController < ApplicationController
   end
 
   def leave
+    @event = Event.find(params[:event_id])
+    @attendance = Attendance.find(params[:attendance_id])
+    @attendance.destroy
+    redirect_to @event, notice: "You have been successfully removed from the list!"
   end
 end

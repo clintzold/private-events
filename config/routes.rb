@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post "attendances/join", to: "attendances#join"
-  get "attendances/leave"
+  delete "attendances/leave", to: "attendances#leave"
   get "my_events", to: "users#show"
   devise_for :users
   root to: "events#index"
