@@ -1,6 +1,6 @@
 <% if current_user.attended_events.exists?(@event.id) %>
   <%= button_to "Leave", attendances_leave_path, params: {attendance_id: current_user.attendances.find_by(attended_event_id: @event.id).id, event_id: @event.id}, method: :delete %>
-<% elsif current_user.invited_tos.includes(:invited_to_id).where(:invited_to_id == @event.id) %>
+<% elsif current_user.invited_tos.exists?(@event.id) %>
   <%= button_to "Accept", attendances_join_path, params: { event_id: @event.id }, method: :post %>
 <% else %>
   <%= button_to "Join", attendances_join_path, params: { event_id: @event.id }, method: :post %>

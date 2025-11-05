@@ -5,8 +5,8 @@
       <h2>Hosted</h2>
       <% @user.events.each do |event| %>
         <div class="event">
-          <p>Location: <%= event.location %></p>
-          <p>Date: <%= event.date %></p>
+          <p><strong>Location:</strong> <%= event.location %></p>
+          <p><strong>Date:</strong> <%= event.date %></p>
           <%= link_to "Details", event %>
         </div>
       <% end %>
@@ -15,8 +15,8 @@
       <h2>Attending</h2>
       <% @user.attended_events.each do |event| %>
         <div class="event">
-          <p>Location: <%= event.location %></p>
-          <p>Date: <%= event.date %></p>
+          <p><strong>Location:</strong> <%= event.location %></p>
+          <p><strong>Date:</strong> <%= event.date %></p>
           <%= link_to "Details", event %>
         </div>
       <% end %>

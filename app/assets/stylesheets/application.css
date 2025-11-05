@@ -1,11 +1,21 @@
 .nav_bar {
+	border-radius: 10px;
+	background-color: grey;
+	padding: 1rem;
 	display:grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	justify-items: center;	
+	align-items: center;
 }
 
 .nav_bar > .button_to {
 	grid-column: 4;
+}
+
+button {
+	min-width: 5em;
+	padding: 5px;
+	border-radius: 10px;
 }
 
 .page_container {
@@ -17,20 +27,29 @@
 
 .all_user_events_container {
 	display:flex;
-	justify-content: space-around;
+	justify-content: center;
+	gap: 1em;
 }
 .events_container {
+	min-width: 15em;
+	max-width: 20em;
 	padding: 2em;
-	border: 2px solid black;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1em;
+	background-color: rgb(250,250,250);
+	border: 5px solid rgb(250,250,250);
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .event {
-	border: 5px solid blue;
+	background-color: white;
+	border: 5px solid white;
+	border-radius: 5px;
 	padding: 1rem;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 /*
  * This is a manifest file that'll be compiled into application.css.
