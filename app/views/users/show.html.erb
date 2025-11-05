@@ -1,7 +1,7 @@
-<h1><%= @user.first_name + " " + @user.last_name %>'s Events</h1>
+<h1 style="text-align:center"><%= @user.first_name + " " + @user.last_name %>'s Events</h1>
 <div class="events_container">
   <% @user.events.each do |event| %>
-    <div>
+    <div class="event">
       <p>Location: <%= event.location %></p>
       <p>Date: <%= event.date %></p>
     </div>

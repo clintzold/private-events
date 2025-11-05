@@ -1,10 +1,11 @@
 <h1 style="text-align:center">Events</h1>
-<div class="events_container" style="display:flex; flex-direction:column; align-items:center;">
+<div class="events_container">
   <% @events.each do |event| %>
-    <div>
+    <div class = "event">
       <%= event.location %>
       <p>Date: <%= event.date %></p>
       <p>Creator: <%= event.creator.first_name + " " + event.creator.last_name %></p>
+      <%= link_to "Event Details", event %>
     </div>
   <% end %>
 </div>

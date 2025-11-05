@@ -1,5 +1,8 @@
-<h1>Event Details</h1>
-<div>
-  <p>Location: <%= @event.location %></p>
-  <p>Date: <%= @event.date %></p>
+<h1 style="text-align:center">Event Details</h1>
+<div class="events_container">
+  <div class="event">
+    <p>Location: <%= @event.location %></p>
+    <p>Date: <%= @event.date %></p>
+    <p>Creator: <%= @event.creator.first_name + " " + @event.creator.last_name %></p>
+  </div>
 </div>
