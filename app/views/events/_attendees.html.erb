@@ -1,0 +1,4 @@
+<p><strong>Guest List:</strong></p>
+<% @event.attendees.each do |attendee| %>
+  <%= attendee.first_name + " " + attendee.last_name %> <br>
+<% end %>

@@ -1,9 +1,31 @@
 <h1 style="text-align:center"><%= @user.first_name + " " + @user.last_name %>'s Events</h1>
-<div class="events_container">
-  <% @user.events.each do |event| %>
-    <div class="event">
-      <p>Location: <%= event.location %></p>
-      <p>Date: <%= event.date %></p>
-    </div>
-  <% end %>
+<div class="all_user_events_container">
+  <div class="events_container">
+    <h2>Hosted</h2>
+    <% @user.events.each do |event| %>
+      <div class="event">
+        <p>Location: <%= event.location %></p>
+        <p>Date: <%= event.date %></p>
+        <%= link_to "Details", event %>
+      </div>
+    <% end %>
+  </div>
+  <div class="events_container">
+    <h2>Attending</h2>
+    <% @user.attended_events.each do |event| %>
+      <div class="event">
+        <p>Location: <%= event.location %></p>
+        <p>Date: <%= event.date %></p>
+        <%= link_to "Details", event %>
+      </div>
+    <% end %>
+  </div>
+  <div class="invitations_container">
+    <% @user.invitations.each do |invite| %>
+      <% @event = Event.find(invite.event_id) %>
+      <div class="event">
+        <p><strong>Location: </strong><%= @event.location %></p>
+        <p><strong>Date: </strong><%= @event.date %></p>
+      </div>
+  </div>
 </div>

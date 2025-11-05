@@ -2,9 +2,8 @@
 <div class="events_container">
   <% @events.each do |event| %>
     <div class = "event">
-      <%= event.location %>
-      <p>Date: <%= event.date %></p>
-      <p>Creator: <%= event.creator.first_name + " " + event.creator.last_name %></p>
+      <div><strong>Location: </strong><%= event.location %></div>
+      <p><strong>Date:</strong> <%= event.date %></p>
       <%= link_to "Event Details", event %>
     </div>
   <% end %>

@@ -1,9 +1,10 @@
 <h1 style="text-align:center">Event Details</h1>
 <div class="events_container">
   <div class="event">
-    <p>Location: <%= @event.location %></p>
-    <p>Date: <%= @event.date %></p>
-    <p>Creator: <%= @event.creator.first_name + " " + @event.creator.last_name %></p>
-    <%= render "join_or_leave" %>
+    <p><strong>Location:</strong> <%= @event.location %></p>
+    <p><strong>Date:</strong> <%= @event.date %></p>
+    <p><strong>Creator:</strong> <%= @event.creator.first_name + " " + @event.creator.last_name %></p>
+    <%= render "attendees" %>
   </div>
+  <%= render "join_or_leave" %>
 </div>

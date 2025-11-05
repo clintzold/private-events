@@ -7,7 +7,14 @@
 .nav_bar > .button_to {
 	grid-column: 4;
 }
+
+.all_user_events_container {
+	display:flex;
+	justify-content: space-around;
+}
 .events_container {
+	padding: 2em;
+	border: 2px solid black;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
