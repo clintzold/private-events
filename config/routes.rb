@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "invitations", to: "invitations#new_invite_list"
   post "invitations", to: "invitations#create"
+  delete "invitations", to: "invitations#destroy"
 
   post "attendances/join", to: "attendances#join"
   delete "attendances/leave", to: "attendances#leave"

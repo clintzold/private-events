@@ -16,7 +16,25 @@
     </div>
     <div class="events_container">
       <h2>Attending</h2>
+      <% upcoming = [] %>
+      <% past = [] %>
       <% @user.attended_events.each do |event| %>
+        <% if event.date.after?(Time.now) %>
+          <% upcoming << event %>
+        <% else %>
+          <% past << event %>
+        <% end %>
+      <% end %>
+      <h3>Upcoming</h3>
+      <% upcoming.each do |event| %>
+        <div class="event">
+          <p><strong>Location:</strong> <%= event.location %></p>
+          <p><strong>Date:</strong> <%= event.date %></p>
+          <%= link_to "Details", event %>
+        </div>
+      <% end %>
+      <h3>Past</h3>
+      <% past.each do |event| %>
         <div class="event">
           <p><strong>Location:</strong> <%= event.location %></p>
           <p><strong>Date:</strong> <%= event.date %></p>

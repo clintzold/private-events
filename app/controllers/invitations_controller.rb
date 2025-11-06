@@ -25,5 +25,13 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
   end
 
+  def destroy
+    @user = current_user
+    @event_id = params[:event_id]
+    @invitation = Invitation.find_by(invitee_id: @user.id, invited_to_id: @event_id)
+    @invitation.destroy
+    redirect_to my_events_path, notice: "Invitation declined!"
+  end
+
   private
 end
