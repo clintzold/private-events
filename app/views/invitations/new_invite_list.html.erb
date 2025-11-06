@@ -1,14 +1,24 @@
-<h3>Send Invites</h3>
+<h3 style="text-align:center">Send Invites</h3>
 
-<%= form_with url: invite_path, method: :post do |form| %>
-  <div>
-    <%= form.collection_select :invited_to_id, @events, :id, :location, prompt: "Select an event" %>
+<div class="page_container">
+  <div class="events_container">
+    <div class="event">
+      <p><strong>Location:</strong> <%= @event.location %></p>
+      <p><strong>Date:</strong> <%= @event.date %></p>
+      <p><strong>Creator:</strong> <%= @event.creator.first_name + " " + @event.creator.last_name %></p>
+      <%= render "events/attendees" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :invitee_ids, "People to invite" %>
-    <%= form.collection_check_boxes(:invitee_ids, User.all.order(last_name: :asc), :id, :first_name) do |b| %>
-      <%= b.label {b.check_box + b.text} %>
-    <% end %>
-    <%= form.submit %>
-  </div>
-<% end %>
+
+  <%= form_with url: invitations_path, method: :post do |form| %>
+    <%= form.hidden_field :event_id, value: @event.id %>
+    <div>
+      <%= form.label :invitee_ids, "People to invite" %>
+      <%= form.collection_check_boxes(:invitee_ids, @users, :id, :first_name) do |b| %>
+        <%= b.label {b.check_box + b.text} %>
+      <% end %>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "events#index"
 
-  get "invite", to: "invitations#new_invite_list"
-  post "invite", to: "invitations#create"
+  get "invitations", to: "invitations#new_invite_list"
+  post "invitations", to: "invitations#create"
 
   post "attendances/join", to: "attendances#join"
   delete "attendances/leave", to: "attendances#leave"

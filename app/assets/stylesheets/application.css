@@ -51,6 +51,12 @@ button {
 	padding: 1rem;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
+
+.event_links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css.
  *
