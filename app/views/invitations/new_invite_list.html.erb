@@ -1,0 +1,14 @@
+<h3>Send Invites</h3>
+
+<%= form_with url: invite_path, method: :post do |form| %>
+  <div>
+    <%= form.collection_select :invited_to_id, @events, :id, :location, prompt: "Select an event" %>
+  </div>
+  <div>
+    <%= form.label :invitee_ids, "People to invite" %>
+    <%= form.collection_check_boxes(:invitee_ids, User.all.order(last_name: :asc), :id, :first_name) do |b| %>
+      <%= b.label {b.check_box + b.text} %>
+    <% end %>
+    <%= form.submit %>
+  </div>
+<% end %>
