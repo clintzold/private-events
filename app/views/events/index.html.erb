@@ -1,7 +1,18 @@
 <h1 style="text-align:center">Events</h1>
 <div class="page_container">
   <div class="events_container">
-    <% @events.each do |event| %>
+    <h2>Past</h2>
+    <% @events.past.each do |event| %>
+      <div class = "event">
+        <div><strong>Location: </strong><%= event.location %></div>
+        <p><strong>Date:</strong> <%= event.date %></p>
+        <%= link_to "Event Details", event %>
+      </div>
+    <% end %>
+  </div>
+  <div class="events_container">
+    <h2>Upcoming</h2>
+    <% @events.upcoming.each do |event| %>
       <div class = "event">
         <div><strong>Location: </strong><%= event.location %></div>
         <p><strong>Date:</strong> <%= event.date %></p>

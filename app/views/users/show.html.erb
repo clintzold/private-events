@@ -1,6 +1,5 @@
 <h1 style="text-align:center"><%= @user.first_name + " " + @user.last_name %>'s Events</h1>
 <div class="page_container">
-  <div class="all_user_events_container">
     <div class="events_container">
       <h2>Hosted</h2>
       <% @user.events.each do |event| %>
@@ -16,15 +15,8 @@
     </div>
     <div class="events_container">
       <h2>Attending</h2>
-      <% upcoming = [] %>
-      <% past = [] %>
-      <% @user.attended_events.each do |event| %>
-        <% if event.date.after?(Time.now) %>
-          <% upcoming << event %>
-        <% else %>
-          <% past << event %>
-        <% end %>
-      <% end %>
+      <% upcoming = @user.attended_events.where("date > ?", Time.now) %>
+      <% past = @user.attended_events.where("date < ?", Time.now) %>
       <h3>Upcoming</h3>
       <% upcoming.each do |event| %>
         <div class="event">
@@ -42,7 +34,6 @@
         </div>
       <% end %>
     </div>
-  </div>
   <div class="events_container">
     <h2>Invitations</h2>
     <% @user.invitations.each do |invite| %>
