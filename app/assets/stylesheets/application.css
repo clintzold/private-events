@@ -29,6 +29,8 @@ button {
 	justify-content: center;
 	gap: 1em;
 }
+
+
 .events_container {
 	min-width: 15em;
 	max-width: 20em;

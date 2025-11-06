@@ -8,12 +8,4 @@ class Event < ApplicationRecord
 
   has_many :invitations, foreign_key: "invited_to_id"
   has_many :invitees, through: :invitations, source: :user
-
-  # def self.past
-  #   where("date < ?", Time.now)
-  # end
-
-  # def self.upcoming
-  #   where("date > ?", Time.now)
-  # end
 end

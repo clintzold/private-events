@@ -9,15 +9,16 @@
       <%= render "events/attendees" %>
     </div>
   </div>
-
   <%= form_with url: invitations_path, method: :post do |form| %>
-    <%= form.hidden_field :event_id, value: @event.id %>
-    <div>
-      <%= form.label :invitee_ids, "People to invite" %>
-      <%= form.collection_check_boxes(:invitee_ids, @users, :id, :first_name) do |b| %>
-        <%= b.label {b.check_box + b.text} %>
-      <% end %>
-      <%= form.submit %>
+    <div class="events_container">
+      <%= form.hidden_field :event_id, value: @event.id %>
+      <%= form.label :invitee_ids, "Create a guest list:" %>
+      <div class="event">
+        <%= form.collection_check_boxes(:invitee_ids, @users, :id, :first_name) do |b| %>
+          <%= b.label {b.check_box + b.text} %>
+        <% end %>
+      </div>
+      <div style="text-align:center"><%= form.submit "Send invites"%></div>
     </div>
   <% end %>
 </div>
